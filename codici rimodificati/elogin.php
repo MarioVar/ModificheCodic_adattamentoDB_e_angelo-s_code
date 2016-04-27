@@ -8,7 +8,7 @@
   //Controllo che i dati siano arrivati tramite POST
   if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-	  	//ok la pagina è stata davvero richiamata dalla form
+	  	//ok la pagina Ã¨ stata davvero richiamata dalla form
 	  
 	  	//recupero il contenuto della textbox email
 	  	$email = $_POST['email'];
@@ -22,8 +22,8 @@
 	  	if($_POST['tipoLog']==='azienda'){
 		  	//RICERCO LA MAIL NELLA TABELLA AZIENDA
 		  	$comandoSQL =
-		  	//"SELECT ID,EMAIL,PWD,ATTIVO FROM aziende JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD=PASSWORD('".$psw."')";
-		  	"SELECT ID,EMAIL,PWD,ATTIVO FROM aziende JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD='".$psw."'";
+		  	"SELECT ID,EMAIL,PWD,ATTIVO FROM aziende JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD=PASSWORD('".$psw."')";
+		  //	"SELECT ID,EMAIL,PWD,ATTIVO FROM aziende JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD='".$psw."'";
 		  	$q = $mysqli->query($comandoSQL);
 		  	//$risultatoRicercaEmail = @mysqli_query($conn, $comandoSQL);
 		  	if(	$riga = $q->fetch_assoc())//la query ha avuto successo	
@@ -54,8 +54,8 @@
 		{
 			//RICERCO LA MAIL NELLA TABELLA UTENTI
 			$comandoSQL =
-			//"SELECT ID,EMAIL,PWD,ATTIVO FROM persone JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD=PASSWORD('".$psw."')";
-			"SELECT ID,EMAIL,PWD,ATTIVO FROM persone JOIN utenti on ID_UTENTE=ID where EMAIL ='" .$email ."' AND PWD='".$psw."'";
+			"SELECT ID,EMAIL,PWD,ATTIVO FROM persone JOIN utenti on ID_UTENTE=ID where EMAIL ='" . $email ."' AND PWD=PASSWORD('".$psw."')";
+			//"SELECT ID,EMAIL,PWD,ATTIVO FROM persone JOIN utenti on ID_UTENTE=ID where EMAIL ='" .$email ."' AND PWD='".$psw."'";
 			echo $comandoSQL;
 			$q = $mysqli->query($comandoSQL);
 		  	//$risultatoRicercaEmail = @mysqli_query($conn, $comandoSQL);
